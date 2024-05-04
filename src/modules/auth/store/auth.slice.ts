@@ -1,16 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthState, ITokensPayload } from '@modules/auth/types/auth.type';
-import { IUser } from '@modules/user';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AuthState, ITokensPayload } from "@modules/auth/types/auth.type";
+import { IUser } from "@modules/user";
 
 const initialState: AuthState = {
   isAuthenticated: false,
   user: {} as IUser,
-  accessToken: '',
-  refreshToken: '',
+  accessToken: "",
+  refreshToken: "",
 };
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setTokens: (state, { payload }: PayloadAction<ITokensPayload>) => {
@@ -21,10 +21,10 @@ export const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = payload;
     },
-    clear: state => {
+    clear: (state) => {
       state.isAuthenticated = false;
-      state.accessToken = '';
-      state.refreshToken = '';
+      state.accessToken = "";
+      state.refreshToken = "";
     },
   },
 });
